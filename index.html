@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dockwatcher</title>
+  <meta name="description" content="Dockwatcher detects birds at the float and opens a sprayer only when it should.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Automated dock deterrent</p>
+    <h1>Dockwatcher</h1>
+    <p class="lede">
+      A camera on the dock watches the float. When a bird is confirmed and people are not in the way,
+      a pop-up nozzle opens and the bird leaves.
+    </p>
+  </header>
+
+  <main>
+    <section class="video-block" aria-labelledby="demo-heading">
+      <h2 id="demo-heading">In action — 24 September 2026, 07:16</h2>
+      <p class="caption">
+        Wide camera on the left of the story, Dockwatcher detections inset at the same second.
+        Gull approaches. Two frames label it a bird. The valve opens. The bird swims off.
+      </p>
+      <div class="embed">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/58Q-f8Q99f8"
+          title="Dockwatcher demonstration"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="stills" aria-labelledby="stills-heading">
+      <h2 id="stills-heading">What Dockwatcher saw</h2>
+      <p class="caption">
+        These are the only two frames from that event with a bird box.
+        They are timestamped to the video so the valve opening is tied to the detection, not to a timer.
+      </p>
+      <div class="grid">
+        <figure>
+          <img src="images/detect-071651.jpg" alt="Dockwatcher frame at 07:16:51 with bird box, confidence 0.22">
+          <figcaption>07:16:51 — Bird 0.22</figcaption>
+        </figure>
+        <figure>
+          <img src="images/detect-071653.jpg" alt="Dockwatcher frame at 07:16:53 with bird box, confidence 0.30, spray visible">
+          <figcaption>07:16:53 — Bird 0.30, spray starting</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="how" aria-labelledby="how-heading">
+      <h2 id="how-heading">How it decides</h2>
+      <ul>
+        <li>Live frames from an IMX500 camera on a Raspberry Pi.</li>
+        <li>Object detection looks for birds — and for people.</li>
+        <li>A bird has to appear on more than one frame before the valve is trusted.</li>
+        <li>If a person was seen recently, the sprayer stays closed.</li>
+        <li>A short burst from a pop-up nozzle on the outer edge of the float is enough.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Dockwatcher · dockwatcher.net</p>
+  </footer>
+</body>
+</html>
