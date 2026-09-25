@@ -61,10 +61,38 @@
         <li>A short burst from a pop-up nozzle on the outer edge of the float is enough to deter the bird.</li>
       </ul>
     </section>
+    <section class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p class="caption">
+        For the project, not for product pitches. The address is shown only after you ask for it.
+      </p>
+      <p>
+        <button type="button" class="mail-btn" id="show-mail">Show email</button>
+        <a class="mail-link" id="mail-link" hidden></a>
+      </p>
+    </section>
+    
   </main>
 
   <footer>
     <p>Dockwatcher · dockwatcher.net</p>
   </footer>
+ <script>
+    (function () {
+      var btn = document.getElementById("show-mail");
+      var link = document.getElementById("mail-link");
+      if (!btn || !link) return;
+      btn.addEventListener("click", function () {
+        var user = "info";
+        var host = "dockwatcher.net";
+        var addr = user + "@" + host;
+        link.href = "mailto:" + addr;
+        link.textContent = addr;
+        link.hidden = false;
+        btn.hidden = true;
+      });
+    })();
+  </script>
+  
 </body>
 </html>
